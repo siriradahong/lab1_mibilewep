@@ -1,0 +1,137 @@
+/* สไตล์ร่วมของทั้งสามแบบ หน้าตาเหมือนกันเพื่อให้เปรียบเทียบเฉพาะวิธีสร้าง HTML */
+
+/* ===== ขั้นที่ 6.2: ส่วนที่นักศึกษาแก้ไขสีได้ =====
+   --brand   สีประจำร้าน ใช้กับแถบหัวหน้าแรก ป้าย และกล่องผู้จัดทำ
+             ข้อความสีขาวบนสีนี้ต้องมี contrast อย่างน้อย 4.5:1 (WCAG 1.4.3)
+   --accent  สีพื้นของกล่องผู้จัดทำ ควรเป็นสีอ่อนที่อ่านข้อความสีเข้มได้ชัด */
+:root {
+  --brand: #8a2454;
+  --accent: #fce7f0;
+}
+/* ===== จบส่วนที่แก้ไข ===== */
+
+:root {
+  color-scheme: light dark;
+  --paper: #f7f8fa;
+  --surface: #ffffff;
+  --ink: #1c2333;
+  --muted: #5a6375;
+  --line: #d9dee6;
+  --mode: #3a4458;
+  --font: system-ui, "Noto Sans Thai", "Sarabun", "Leelawadee UI", Tahoma, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #14171d; --surface: #1d2129; --ink: #e8ebf0; --muted: #a8b0bd; --line: #343a46; }
+}
+.mode-home, .mode-admin { --mode: var(--brand); }
+.mode-ssg { --mode: #1f7a4d; }
+.mode-ssr { --mode: #5b3fa6; }
+.mode-csr { --mode: #b4530f; }
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  background: var(--paper);
+  color: var(--ink);
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--mode); outline-offset: 2px; }
+
+header.site, footer.site, main {
+  width: min(100% - 2rem, 60rem);
+  margin-inline: auto;
+}
+header.site {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 4px solid var(--mode);
+}
+.home { font-weight: 700; font-size: 1.25rem; text-decoration: none; }
+.badge {
+  margin: 0; padding: .125rem .75rem;
+  border-radius: 999px;
+  background: var(--mode); color: #fff; font-weight: 700;
+}
+main { padding-block: 1.5rem 3rem; }
+h1 { font-size: clamp(1.5rem, 1.1rem + 1.7vw, 2.25rem); line-height: 1.3; margin-block: 0 .5rem; }
+.lead { color: var(--muted); max-width: 40rem; }
+
+.origin {
+  padding: .75rem 1rem;
+  border-inline-start: 4px solid var(--mode);
+  background: var(--surface);
+  margin-block-end: 1.5rem;
+}
+.origin p { margin: 0; }
+
+.products {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+}
+.product {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+.product h2 { font-size: 1.125rem; margin: 0; }
+.product p { margin: .25rem 0 0; }
+.spec, .updated { color: var(--muted); font-size: .875rem; }
+.price { font-size: 1.375rem; font-weight: 700; }
+.loading, .error { padding: 1rem; }
+.error { border: 1px solid #c62828; border-radius: .5rem; }
+
+.modes { list-style: none; padding: 0; display: grid; gap: .75rem; }
+.mode-link a {
+  display: block; padding: 1rem;
+  background: var(--surface); border: 1px solid var(--line);
+  border-inline-start: 6px solid var(--mode); border-radius: .5rem;
+  text-decoration: none; min-height: 2.75rem;
+}
+.mode-link.ssg { --mode: #1f7a4d; }
+.mode-link.ssr { --mode: #5b3fa6; }
+.mode-link.csr { --mode: #b4530f; }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--surface); }
+caption { text-align: start; color: var(--muted); padding-block-end: .5rem; }
+th, td { text-align: start; padding: .5rem .75rem; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.price-form { display: flex; flex-wrap: wrap; gap: .5rem; }
+.price-form input[type="number"] { font: inherit; width: 9rem; min-height: 2.75rem; padding-inline: .5rem; }
+button {
+  font: inherit; min-height: 2.75rem; padding-inline: 1rem;
+  border: 0; border-radius: .375rem; background: var(--mode); color: #fff; cursor: pointer;
+}
+.notice { border-inline-start: 4px solid #1f7a4d; padding-inline-start: .75rem; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.author {
+  margin-block-start: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--accent);
+  color: #1c2333;
+  border-inline-start: 6px solid var(--brand);
+  border-radius: .5rem;
+}
+.author h2 { margin: 0 0 .5rem; font-size: 1.125rem; }
+.author dl { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; margin: 0; }
+.author dt { font-weight: 700; }
+.author dd { margin: 0; }
+
+@media (max-width: 30rem) {
+  .author dl { grid-template-columns: minmax(0, 1fr); gap: .125rem; }
+  .author dd { overflow-wrap: anywhere; }
+  .author dd + dt { margin-block-start: .75rem; }
+}
+
+footer.site { padding-block: 1rem 2rem; border-top: 1px solid var(--line); font-size: .875rem; }
+.secure.yes { color: #1f7a4d; }
+.secure.no  { color: #c62828; }
+@media (prefers-color-scheme: dark) {
+  .secure.yes { color: #6dd58c; }
+  .secure.no  { color: #ff8a80; }
+}

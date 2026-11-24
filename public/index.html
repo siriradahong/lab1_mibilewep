@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab01 ร้านโน้ตบุ๊กสามแบบ</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="mode-home">
+  <header class="site"><a href="/" class="home">ร้านโน้ตบุ๊ก</a><p class="badge">Lab01</p></header>
+  <main>
+    <h1>ข้อมูลชุดเดียว สามวิธีสร้างหน้าเว็บ</h1>
+    <p class="lead">ทั้งสามหน้าแสดงสินค้าจากฐานข้อมูลเดียวกัน ต่างกันที่ HTML ถูกสร้างที่ไหนและเมื่อใด</p>
+    <ul class="modes">
+      <li class="mode-link ssg"><a href="/ssg/"><strong>SSG</strong> สร้างไว้ล่วงหน้าตอน build</a></li>
+      <li class="mode-link ssr"><a href="/ssr"><strong>SSR</strong> เซิร์ฟเวอร์สร้างทุกครั้งที่มีคำขอ</a></li>
+      <li class="mode-link csr"><a href="/csr/"><strong>CSR</strong> เบราว์เซอร์สร้างจากข้อมูล JSON</a></li>
+    </ul>
+    <p><a href="/admin">แก้ราคาสินค้าในฐานข้อมูล</a> · <a href="/api/products">ดูข้อมูล JSON จาก API</a></p>
+
+    <!-- ขั้นที่ 6.1: แก้ข้อมูลในส่วนนี้เป็นของตนเอง -->
+    <section class="author" aria-labelledby="author-title">
+      <h2 id="author-title">ผู้จัดทำ</h2>
+      <dl>
+        <dt>รหัสนักศึกษา</dt>
+        <dd>673380022-4</dd>
+        <dt>ชื่อ–สกุล</dt>
+        <dd>นางสาวสิริรดา หงษ์แสงไทย</dd>
+        <dt>สาขาวิชา</dt>
+        <dd>เทคโนโลยีสารสนเทศ วิทยาลัยการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น</dd>
+      </dl>
+    </section>
+  </main>
+  <footer class="site"><p id="secure-status">กำลังตรวจ Secure Context…</p></footer>
+  <script src="/secure-check.js"></script>
+</body>
+</html>

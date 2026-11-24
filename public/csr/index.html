@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ร้านโน้ตบุ๊ก (CSR)</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="mode-csr">
+  <header class="site">
+    <a href="/" class="home">ร้านโน้ตบุ๊ก</a>
+    <p class="badge">CSR</p>
+  </header>
+  <main>
+    <section class="origin" aria-label="ที่มาของ HTML">
+      <p><strong>HTML หน้านี้สร้างที่:</strong> เบราว์เซอร์ของผู้ใช้ (app.js) หลังดึงข้อมูลจาก /api/products</p>
+      <p><strong>สร้างเมื่อ:</strong> <span id="generated-at">ยังไม่สร้าง</span></p>
+    </section>
+    <!-- เซิร์ฟเวอร์ส่งรายการว่างมา JavaScript จะเติมสินค้าลงที่นี่ ลองดูด้วย View Source -->
+    <ul class="products" id="products" aria-live="polite">
+      <li class="loading">กำลังโหลดสินค้า…</li>
+    </ul>
+  </main>
+  <footer class="site"><p id="secure-status">กำลังตรวจ Secure Context…</p></footer>
+  <script src="/secure-check.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

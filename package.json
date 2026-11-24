@@ -1,0 +1,17 @@
+{
+  "name": "lab01-three-renderings",
+  "version": "1.0.0",
+  "description": "Lab01: ร้านโน้ตบุ๊กสามแบบ (SSG, SSR, CSR) จากฐานข้อมูลเดียวกัน",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "seed": "node db/seed.js",
+    "build:ssg": "node scripts/build-ssg.js",
+    "setup": "npm run seed && npm run build:ssg",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
